@@ -1,0 +1,9 @@
+[workspace]
+resolver = "2"
+members = [
+  "rtcrypt-core",
+  "rtcrypt-cose",
+  "rtcrypt-auth",
+  "rtcrypt-kms",
+  "rtcrypt-cli"
+]

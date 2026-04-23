@@ -1,0 +1,17 @@
+{
+  "typ": "rtpack.manifest",
+  "profile": "rtpack-cose-v1",
+  "version": 1,
+  "issuer": "rtcloud:tenant-a",
+  "subject": "pack:example-001",
+  "issued_at": 1760000000,
+  "tenant_id": "tenant-a",
+  "resource_id": "pack:example-001",
+  "content_type": "application/octet-stream",
+  "payload_digest": "BASE64URL_OR_HEX_PLACEHOLDER",
+  "payload_length": 1280,
+  "labels": [
+    "example",
+    "signed"
+  ]
+}

@@ -1,0 +1,21 @@
+; RTCrypt / RTPack Manifest CDDL - draft inicial
+; Este esquema describe la forma conceptual mínima del manifest serializado en CBOR.
+; No define el envelope COSE; solo el objeto de dominio que será protegido.
+
+rt-manifest = {
+  1 => tstr,         ; typ, ejemplo: "rtpack.manifest"
+  2 => tstr,         ; profile, ejemplo: "rtpack-cose-v1"
+  3 => uint,         ; version/schema version
+  4 => tstr,         ; issuer
+  5 => tstr,         ; subject / resource owner / actor opcional según perfil
+  6 => uint,         ; issued_at unix epoch seconds
+  ? 7 => uint,       ; expires_at unix epoch seconds
+  8 => tstr,         ; tenant_id
+  9 => tstr,         ; resource_id
+  10 => tstr,        ; content_type
+  11 => bstr,        ; payload_digest
+  12 => uint,        ; payload_length
+  ? 13 => [* tstr],  ; labels/tags
+  ? 14 => tstr,      ; payload_ref
+  ? 15 => { * tstr => any } ; additional claims / extensions
+}

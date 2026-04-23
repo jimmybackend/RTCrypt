@@ -1,0 +1,88 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://rtcrypt.example/schemas/claims.json",
+  "title": "RTCrypt Claims",
+  "type": "object",
+  "additionalProperties": true,
+  "properties": {
+    "iss": {
+      "type": "string",
+      "minLength": 1
+    },
+    "sub": {
+      "type": "string",
+      "minLength": 1
+    },
+    "aud": {
+      "oneOf": [
+        {
+          "type": "string",
+          "minLength": 1
+        },
+        {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "minItems": 1
+        }
+      ]
+    },
+    "exp": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "nbf": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "iat": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "scope": {
+      "type": "string"
+    },
+    "client_id": {
+      "type": "string"
+    },
+    "tenant_id": {
+      "type": "string"
+    },
+    "rt_roles": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    },
+    "rt_permissions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "uniqueItems": true
+    }
+  },
+  "required": [
+    "iss",
+    "aud"
+  ],
+  "examples": [
+    {
+      "iss": "https://id.rethra.example",
+      "sub": "user-123",
+      "aud": [
+        "rtcore"
+      ],
+      "exp": 1760000000,
+      "iat": 1759996400,
+      "scope": "rtpack:read rtstream:publish",
+      "tenant_id": "tenant-a",
+      "rt_roles": [
+        "operator"
+      ]
+    }
+  ]
+}
